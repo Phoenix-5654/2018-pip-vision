@@ -3,19 +3,21 @@ import wpilib
 import wpilib.drive
 from commandbased import CommandBasedRobot
 from networktables import NetworkTables
-from wpilib.command import Command
+from wpilib.command import Command, Scheduler
 
 import oi
 from subsystems.conveyorvbelt import ConveyorBelt
 from subsystems.drivetrain import Drivetrain
 from subsystems.shooter import Shooter
 
+from commands.followjoystick import FollowJoystick
+
 
 class MyRobot(CommandBasedRobot):
 
     def robotInit(self):
         Command.getRobot = lambda _: self
-
+        #wpilib.CameraServer.launch()
         wpilib.CameraServer.launch('vision.py:main')
 
         NetworkTables.initialize(server='10.56.54.2')
@@ -54,6 +56,12 @@ class MyRobot(CommandBasedRobot):
         self.conveyor_mode = 0
 
         self.joystick = oi.get_joystick()
+
+def teleopInit(self):
+    self.drivtrain.setDefaultCommand(FollowJoystick())
+
+def teleopPeriodic(self):
+    Scheduler.getInstance().run()
 
 
 if __name__ == '__main__':

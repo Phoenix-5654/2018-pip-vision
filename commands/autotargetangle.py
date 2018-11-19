@@ -3,9 +3,10 @@ from wpilib.command import PIDCommand
 
 
 class AutoTargetAngle(PIDCommand):
-    PARALLEL = -4.5
+    #PARALLEL = -4.5
+    PARALLEL = 80
     HALF_X_RES = 640 // 2
-    NUM_OF_CHECKS = 10
+    NUM_OF_CHECKS = 6
 
     def __init__(self):
 
@@ -36,7 +37,7 @@ class AutoTargetAngle(PIDCommand):
 
         if self.previous != 90:
             print(output)
-            self.getRobot().drivetrain.drive_robot(z_rotation=output)
+            self.getRobot().drivetrain.drive_robot(z_rotation= output)
 
     def isFinished(self):
 

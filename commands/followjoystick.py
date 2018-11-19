@@ -9,6 +9,7 @@ class FollowJoystick(Command):
         self.requires(self.getRobot().drivetrain)
 
     def execute(self):
+        print("Something")
         self.getRobot().drivetrain.drive_robot(
             self.getRobot().joystick.getX(), -self.getRobot().joystick.getY(),
             self.getRobot().joystick.getZ())

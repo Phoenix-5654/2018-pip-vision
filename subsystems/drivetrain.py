@@ -11,7 +11,9 @@ class Drivetrain(Subsystem):
         self.drive = drive
 
     def drive_robot(self, y_speed=0, x_speed=0, z_rotation=0):
-        self.drive.driveCartesian(y_speed, x_speed, z_rotation)
+        if(abs(y_speed) < 0.015):
+            y_speed = 0
+        if(abs(y_speed) < 0.015):
+            y_speed = 0
 
-    def initDefaultCommand(self):
-        self.setDefaultCommand(FollowJoystick())
+        self.drive.driveCartesian(y_speed, x_speed, z_rotation)

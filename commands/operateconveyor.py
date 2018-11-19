@@ -13,11 +13,10 @@ class OperateConveyor(Command):
     def __init__(self):
 
         super().__init__('Operate Conveyor')
-
         self.command = None
 
     def initialize(self):
-
+        print("operating conveyor")
         print('Operate', self.getRobot().conveyor_mode)
 
         if self.getRobot().conveyor_mode == self.INTAKE_TO_MAGAZINE:

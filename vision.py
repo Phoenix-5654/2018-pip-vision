@@ -5,8 +5,8 @@ from networktables import NetworkTables
 
 from grip import GripPipeline
 
-HORIZONTAL_RES = 1280 // 2
-VERTICAL_RES = 720 // 2
+HORIZONTAL_RES = 2952
+VERTICAL_RES = 1944
 
 
 def extra_process(cnt):
@@ -17,7 +17,7 @@ def extra_process(cnt):
 
     rect = cv2.minAreaRect(cnt)
 
-    angle = rect[-1]
+    angle = VERTICAL_RES - center_x
 
     width = rect[1][0]
     height = rect[1][1]

@@ -6,7 +6,7 @@ from commands.autotargetx import AutoTargetX
 from commands.autotargety import AutoTargetY
 from commands.operateconveyor import OperateConveyor
 from commands.switchmode import SwitchMode
-
+from commands.qubeshooter import QubeShooter
 
 def get_joystick():
     joystick = Joystick(0)
@@ -25,5 +25,8 @@ def get_joystick():
 
     button_9 = JoystickButton(joystick, 9)
     button_9.whenPressed(AutoTargetAngle())
+
+    button_3 = JoystickButton(joystick, 3)
+    button_3.whenPressed(QubeShooter())
 
     return joystick

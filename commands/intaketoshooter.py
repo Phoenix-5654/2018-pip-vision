@@ -5,7 +5,6 @@ class IntakeToShooter(Command):
 
     def __init__(self):
         super().__init__('Intake to Shooter')
-
         self.requires(self.getRobot().intake_belt)
         self.requires(self.getRobot().magazine_belt)
         self.requires(self.getRobot().shooter_belt)
